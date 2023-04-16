@@ -9,7 +9,7 @@ interface API {
     @POST("signIn")
     fun signIn(@Body body: ModelAuth) : Call<ModelIdentity>
     @POST("signUp")
-    fun signup(@Body body: ModelReg) : Call<ModelIdentity>
+    fun signUp(@Body body: ModelReg) : Call<ModelIdentity>
     @POST("signOut")
     fun signOut(@Header("Authorization") token: String) : Call<Boolean>
 }

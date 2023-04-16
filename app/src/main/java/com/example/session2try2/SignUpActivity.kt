@@ -26,20 +26,25 @@ class SignUpActivity : AppCompatActivity() {
             bio.forEach {
                 if (it == "") {
                     showAlertdialog("Заполнены не все поля!", this@SignUpActivity)
+                    return@setOnClickListener
                 }
+
             }
             if (bio[4] != bio[5]) {
                 showAlertdialog("Пароли не совпадают!", this@SignUpActivity)
+                return@setOnClickListener
             }
-            if (!checkEmailPattern(bio[4])) {
+            if (!checkEmailPattern(bio[3])) {
                 showAlertdialog("Почта указана некорректно!", this@SignUpActivity)
+                return@setOnClickListener
             }
-            api.signUp(ModelReg(bio[1], bio[0], bio[2], bio[3], bio[4], "01.01.2001", "Мужской")).push(object: OnGetData<ModelIdentity>{
+            api.signUp(ModelReg(bio[1], bio[0], bio[2], bio[3], bio[4], "01.01.2001", "Мужчина")).push(object: OnGetData<ModelIdentity>{
                 override fun onGet(data: ModelIdentity) {
                     SharedPref.saveMail(bio[3], this@SignUpActivity)
                     SharedPref.savePassword(bio[4], this@SignUpActivity)
                     SharedPref.saveToken(data.token, this@SignUpActivity)
                     startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
+                    finish()
                 }
 
                 override fun onError(error: String) {

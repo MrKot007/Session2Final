@@ -38,18 +38,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/jost_medium"
-        android:text="Почта"
-        android:textColor="#263238"
-        app:layout_constraintBottom_toTopOf="@+id/mailCard"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/passCard"
         android:layout_width="match_parent"
@@ -86,6 +74,18 @@
         android:text="Пароль"
         android:textColor="#263238"
         app:layout_constraintBottom_toTopOf="@+id/passCard"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/jost_medium"
+        android:text="Почта"
+        android:textColor="#263238"
+        app:layout_constraintBottom_toTopOf="@+id/mailCard"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.cardview.widget.CardView
@@ -162,6 +162,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/jost_medium"
             android:text="Создать аккаунт"
             android:textAlignment="center"
             android:textColor="#FFC100"

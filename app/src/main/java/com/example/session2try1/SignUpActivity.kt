@@ -55,6 +55,7 @@ class SignUpActivity : AppCompatActivity() {
                     SharedPref.savePassword(bio[6], this@SignUpActivity)
                     api.signIn(ModelAuth(bio[5], bio[6])).push(object: OnGetData<ModelIdentity>{
                         override fun onGet(data: ModelIdentity) {
+                            SharedPref.saveToken(data.token, this@SignUpActivity)
                             startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
                             finish()
                         }

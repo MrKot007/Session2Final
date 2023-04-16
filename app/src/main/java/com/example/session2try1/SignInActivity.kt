@@ -32,6 +32,7 @@ class SignInActivity : AppCompatActivity() {
                 override fun onGet(data: ModelIdentity) {
                     SharedPref.saveMail(email, this@SignInActivity)
                     SharedPref.savePassword(password, this@SignInActivity)
+                    SharedPref.saveToken(data.token, this@SignInActivity)
                     startActivity(Intent(this@SignInActivity, MainActivity::class.java))
                     finish()
                 }

@@ -32,6 +32,15 @@ class SharedPref {
             val sp: SharedPreferences = context.getSharedPreferences("pass", Context.MODE_PRIVATE)
             return sp.getString("password", "no password had been set")
         }
+        fun saveToken(token: String, context: Context) {
+            val sp: SharedPreferences = context.getSharedPreferences("token", Context.MODE_PRIVATE)
+            val editor = sp.edit()
+            editor.putString("token", token).apply()
+        }
+        fun getToken(context: Context): String? {
+            val sp: SharedPreferences = context.getSharedPreferences("token", Context.MODE_PRIVATE)
+            return sp.getString("token", "no token had been set")
+        }
 
     }
 }
